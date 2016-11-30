@@ -65,7 +65,7 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import rtandroid.realtime.RealTimeProxy;
+import rtandroid.BuildInfo;
 
 public class DeviceInfoSettings extends SettingsPreferenceFragment implements Indexable {
 
@@ -398,8 +398,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private String getRealtimeSDKVersion()
     {
         try {
-            RealTimeProxy proxy = new RealTimeProxy();
-            long version = proxy.getVersion();
+            long version = BuildInfo.getVersion();
             return Long.toString(version);
         } catch (Exception e) {
             return "0";
