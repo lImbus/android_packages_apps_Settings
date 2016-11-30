@@ -50,7 +50,7 @@ import java.util.List;
 
 import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
-import rtandroid.realtime.RealTimeProxy;
+import rtandroid.BuildInfo;
 
 public class DeviceInfoSettings extends SettingsPreferenceFragment implements Indexable {
 
@@ -369,8 +369,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
 
     private static String getRealtimeSdkVersion() {
         try {
-            RealTimeProxy proxy = new RealTimeProxy();
-            long version = proxy.getVersion();
+            long version = BuildInfo.getVersion();
             return Long.toString(version);
         } catch (Exception ignored) {
             return "unknown";
